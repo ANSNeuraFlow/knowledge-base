@@ -1,8 +1,51 @@
-	\newpage
-\section{Projektowanie}		%3
-%Napisać z jakich narzędzi będziemy korzystać (kompilator, język programowania), git, biblioteki dodatkowe, itp.
-%Opisać szczegółowe ustawienia kompilatora (jeśli są), powiązania z bibliotekami, itp.
-%Narysować graf, UML, diagram klas, schemat działania algorytmu
-%Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać sposób jego używania
+\newpage
+\section{Wymagania funkcjonalne}
 
+System sterowania dronem przy użyciu interfejsu BCI wymaga spełnienia szeregu funkcji, które zapewnią prawidłowe działanie wszystkich komponentów, od rejestracji sygnałów EEG po sterowanie dronem w czasie rzeczywistym. Poniżej przedstawiono szczegółowe wymagania dotyczące infrastruktury przetwarzania danych, która stanowi podstawe całego systemu i odpowiada za przesyłanie, przetwarzanie oraz magazynowanie informacji w spójny i bezpieczny sposób.
 
+\subsection{Infrastruktura przetwarzania danych}
+
+\subsubsection{Fizyczna infrastruktura klastra}
+\begin{itemize}
+    \item Klaster powinien składać się z pięciu fizycznych komputerów połączonych w sieć.
+    \item Maszyny powinny umożliwiać równoległe przetwarzanie danych EEG.
+    \item Klaster musi być dostępny zdalnie poprzez VPN.
+    \item Na każdym komputerze powinien działać system Ubuntu Server.
+    \item Klaster powinien być skalowalny, umożliwiając potencjalne dodanie nowych węzłów w przyszłości.
+\end{itemize}
+\subsubsection{Przesyłanie napływających danych EEG i treningowych}
+\begin{itemize}
+    \item System powinien umożliwiać przesyłanie strumieniowe danych EEG i danych treningowych pomiędzy headsetem, klastrem i modułem uczenia maszynowego.
+    \item Dane powinny docierać w czasie rzeczywistym, bez utraty próbek i z zachowaniem integralności sygnału.
+    \item System powinien umożliwiać kolejkowanie danych i obsługę wielu źródeł jednocześnie.
+    \item System powinien umożliwiać wstępną weryfikację jakości napływających danych i oznaczanie podejrzanych próbek.
+\end{itemize}
+\subsubsection{Przetwarzanie danych w strumieniu czasu rzeczywistego}
+\begin{itemize}
+    \item System powinien filtrować i oczyszczać dane EEG w czasie rzeczywistym, eliminując artefakty i szumy.
+    \item Powinna być możliwa ekstrakcja cech dla algorytmów uczenia maszynowego po odebraniu danych.
+    \item System powinien wspierać wysyłanie wyników przetwarzania do dalszych komponentów (np. modeli ML, dashboardu) w czasie rzeczywistym.
+\end{itemize}
+\subsubsection{Magazynowanie danych surowych i przetworzonych}
+\begin{itemize}
+    \item System musi przechowywać surowe dane EEG w formacie umożliwiającym późniejszą analizę i retraining modeli.
+    \item Przetworzone dane i wektory cech powinny być magazynowane w sposób uporządkowany 
+    \item Dane powinny być przechowywane na wielu węzłach klastra, co zapewnia redundancję i bezpieczeństwo w przypadku awarii pojedynczej maszyny.
+\end{itemize}
+\subsubsection{Orkiestracja procesów przetwarzania i treningu modeli}
+\begin{itemize}
+    \item System powinien automatycznie zarządzać przepływem danych między komponentami.
+    \item Powinien umożliwiać harmonogramowanie treningu modeli uczenia maszynowego w określonych interwałach lub po zgromadzeniu nowych danych treningowych.
+\end{itemize}
+\subsubsection{Monitoring i wizualizacja stanu systemu}
+\begin{itemize}
+    \item System powinien umożliwiać podgląd jakości napływających danych EEG i statusu przetwarzania w czasie rzeczywistym.
+    \item Powinien monitorować obciążenie klastra, wykorzystanie pamięci i CPU poszczególnych maszyn.
+    \item System powinien wizualizować wyniki przetwarzania, błędy i statystyki wydajności.
+    \item Powinna istnieć możliwość generowania raportów i alarmów w przypadku wykrycia nieprawidłowości w działaniu systemu.
+\end{itemize}
+\subsection{Preprocessing i ekstrakcja cech ?????}
+\subsection{Machine Learning}
+\subsection{Headset EEG}
+\subsection{Dron}
+\subsection{Aplikacja}

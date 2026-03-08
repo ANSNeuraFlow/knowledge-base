@@ -1,2 +1,48 @@
-	\newpage
-\section{Ogólne określenie wymagań}		%1
+\newpage
+\section{Wprowadzenie}		
+\subsection{Wstęp}
+Dynamiczny rozwój technologii interfejsów mózg–komputer (Brain–Computer Interface, BCI) otwiera nowe możliwości komunikacji między człowiekiem a urządzeniami elektronicznymi. Systemy BCI umożliwiają sterowanie komputerami, robotami czy urządzeniami autonomicznymi wyłącznie za pomocą aktywności mózgu, bez konieczności użycia tradycyjnych metod interakcji takich jak klawiatura, mysz czy kontrolery ruchu.
+
+\noindent Jedną z najbardziej obiecujących dziedzin zastosowań technologii BCI jest sterowanie systemami robotycznymi w czasie rzeczywistym. Szczególnie interesującym obszarem są bezzałogowe statki powietrzne (drony), które dzięki swojej mobilności oraz zdolności do autonomicznego lotu stanowią idealną platformę badawczą do eksperymentów z interfejsami mózg–komputer.
+
+\noindent Projekt opisany w niniejszej dokumentacji dotyczy budowy kompletnego systemu umożliwiającego sterowanie dronem przy użyciu sygnałów mózgowych użytkownika. System wykorzystuje elektroencefalografię (EEG) do rejestrowania aktywności mózgu, a następnie przetwarza te dane przy użyciu narzędzi analizy sygnałów oraz metod uczenia maszynowego w celu rozpoznania intencji użytkownika.
+
+\subsection{Cel projektu}
+Celem projektu jest zaprojektowanie i implementacja kompletnego systemu \\ Brain–Computer Interface umożliwiającego sterowanie dronem w czasie rzeczywistym przy użyciu sygnałów mózgowych użytkownika.
+\\ \\
+System obejmuje zarówno warstwę sprzętową, jak i programową, w tym:
+\begin{itemize}
+    \item budowę własnego headsetu EEG opartego na platformie OpenBCI,
+    \item konstrukcję drona z wykorzystaniem gotowych komponentów mechanicznych i elektronicznych,
+    \item stworzenie infrastruktury przetwarzania danych w czasie rzeczywistym,
+    \item implementację algorytmów uczenia maszynowego do rozpoznawania intencji użytkownika,
+    \item integrację wszystkich komponentów w spójny system sterowania,
+    \item stworzenie dedykowanej aplikacji umożliwiającej obsługę systemu,
+\end{itemize}
+\subsection{Główne wyzwania}
+Realizacja systemu sterowania dronem z wykorzystaniem interfejsu mózg–komputer wiąże się z szeregiem wyzwań technologicznych wynikających zarówno z charakterystyki sygnałów EEG, jak i złożoności całego systemu. Do najważniejszych należą:
+
+\begin{itemize}
+    \item Niska jakość sygnałów EEG i obecność artefaktów – sygnały mózgowe mają bardzo niską amplitudę (rzędu mikrovoltów) i są podatne na zakłócenia. W trakcie rejestracji pojawiają się artefakty związane m.in. z mruganiem, ruchami gałek ocznych, aktywnością mięśni oraz zakłóceniami elektromagnetycznymi, co wymaga zastosowania filtracji i metod redukcji szumów.
+    \item Rozpoznawanie intencji użytkownika – sygnały EEG są silnie zindywidualizowane, co utrudnia budowę uniwersalnych modeli klasyfikacyjnych. W projekcie planowane jest wykorzystanie metody Common Spatial Patterns (CSP), która pozwala wyodrębnić wzorce aktywności mózgu najlepiej różnicujące poszczególne klasy sygnałów. Uzyskane cechy służą następnie jako dane wejściowe dla algorytmów uczenia maszynowego. 
+    \item Przetwarzanie danych w czasie rzeczywistym – system musi analizować sygnały EEG i generować komendy sterujące dla drona z możliwie niską latencją, co wymaga wydajnej architektury przetwarzania strumieniowego oraz sprawnej integracji wszystkich komponentów systemu.
+\end{itemize}
+\subsection{Znaczenie projektu}
+Projekt ma charakter interdyscyplinarny i łączy w sobie elementy wielu dziedzin, takich jak:
+\begin{itemize}
+    \item inżynieria biomedyczna,
+    \item przetwarzanie sygnałów,
+    \item uczenie maszynowe,
+    \item systemy rozproszone i Big Data,
+    \item robotyka i systemy autonomiczne.
+\end{itemize}
+\subsection{Motywacja i zastosowanie projektu}
+Rozwój technologii interfejsów mózg–komputer (BCI) otwiera nowe możliwości w interakcji człowieka z maszynami, pozwalając sterować urządzeniami elektronicznymi wyłącznie przy użyciu sygnałów mózgowych. Szczególne znaczenie mają takie systemy w kontekście osób z ograniczoną sprawnością ruchową, umożliwiając im obsługę robotów i urządzeń autonomicznych bez użycia tradycyjnych metod sterowania. Sterowanie dronem przy użyciu BCI łączy neuroinżynierię, uczenie maszynowe oraz robotykę, oferując potencjał w wielu dziedzinach:
+\begin{itemize}
+    \item Misje ratownicze i poszukiwawcze w trudno dostępnych terenach.
+    \item Eksploracja i monitoring środowiska.
+    \item Zastosowania edukacyjne i badawcze w neurotechnologii i robotyce.
+    \item Rozwój technologii wspomagających osoby z niepełnosprawnościami.
+    \item Testowanie i doskonalenie metod przetwarzania sygnałów EEG w czasie rzeczywistym oraz algorytmów uczenia maszynowego.
+\end{itemize}
+Projekt ten ma na celu nie tylko stworzenie funkcjonalnego systemu sterowania dronem, ale także rozwinięcie wiedzy w zakresie integracji sprzętu EEG, przetwarzania sygnałów oraz inteligentnego sterowania robotami w praktycznych zastosowaniach.

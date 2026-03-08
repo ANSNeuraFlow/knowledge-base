@@ -1,9 +1,12 @@
 \newpage
-\section{Analiza problemu}		%2
-%Napisać gdzie używa się tego algorytmu
-%Opisać sposób działania programu/algorytmu
-%Napisać spsoób wykorzystania algorytmu po przez wykonanie przykładu (np. mnożenie macierzy - wykonać ręcznie przykład z mnożeniem macierzy pokazujący jak mnoży się macierz ręcznie)
-%Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać narzędzie
+\section{Analiza problemu}		
+Projekt systemu sterowania dronem przy użyciu interfejsu mózg–komputer wymaga rozwiązania wielu wyzwań technicznych i organizacyjnych. System musi jednocześnie zapewnić niezawodne przetwarzanie sygnałów EEG, dokładną klasyfikację intencji użytkownika oraz bezpieczne sterowanie dronem w czasie rzeczywistym. Analiza problemu pozwala zidentyfikować kluczowe wyzwania, które determinują późniejsze wymagania funkcjonalne i niefunkcjonalne systemu. Najważniejsze problemy do rozwiązania to:
+\begin{itemize}
+    \item Niska jakość sygnałów EEG – sygnały są bardzo słabe, podatne na zakłócenia i artefakty, co utrudnia ich interpretację.
+    \item Zindywidualizowane wzorce mózgowe – różnice między użytkownikami wymagają personalizacji modeli klasyfikacyjnych.
+    \item Przetwarzanie w czasie rzeczywistym – system musi działać z niską latencją, aby komendy sterujące były natychmiastowo realizowane przez drona.
+    \item Integracja komponentów sprzętowych i programowych – konieczność połączenia headsetu EEG, drona, modułów ML, strumieniowania danych i aplikacji webowej w spójny system.
+    \item Bezpieczeństwo użytkownika i drona – system musi reagować na błędy klasyfikacji, zapewniać awaryjne zatrzymanie drona i filtrować fałszywe komendy.
+\end{itemize}
 
-
-
+\noindent Każdy z powyższych problemów wymaga zastosowania odpowiednich rozwiązań technologicznych oraz metod projektowych. Niska jakość sygnałów EEG wymusza użycie zaawansowanej filtracji i technik redukcji artefaktów, natomiast zindywidualizowane wzorce mózgowe wymagają opracowania spersonalizowanych modeli uczenia maszynowego. Realizacja przetwarzania w czasie rzeczywistym oraz integracja wszystkich komponentów systemu stawia wysokie wymagania co do architektury oprogramowania i synchronizacji danych. Jednocześnie kwestie bezpieczeństwa użytkownika i drona determinują konieczność wprowadzenia mechanizmów awaryjnego zatrzymania, filtrowania fałszywych komend oraz monitorowania stanu systemu podczas lotu.
